@@ -17,7 +17,7 @@ const (
   from     = "2020-05-05"
   to       = "2020-05-16"
   url      = "https://api-invest.tinkoff.ru/openapi/operations?from=" + from + "T18%3A38%3A33.131642%2B03%3A00&to=" + to + "T18%3A38%3A33.131642%2B03%3A00"
-  filepath = "/Users/filenkoivan/Downloads/broker_report.csv"
+  filepath = "result_csv_filepath"
 )
 
 func main() {
@@ -72,7 +72,6 @@ func main() {
 
   result := make([]string, 0)
   lines := make([]string, 0)
-  count := 0
 
   result = append(lines, fmt.Sprintf("Date,Time,Symbol,Quantity,Price,Buy/Sell,Commission"))
   for _, v := range operationsResp.Payload.Operations {
@@ -91,10 +90,7 @@ func main() {
         quantity += trade.Quantity
       }
 
-      line := fmt.Sprintf("%v,%v,%v,%v,%v,%v,%v", dateStr, timeStr, figiToCompany[v.Figi].Ticker, quantity, v.Price, v.OperationType, v.Commision.Value*-1)
-
-      lines = append(lines, line)
-      count += 1
+      lines = append(lines, fmt.Sprintf("%v,%v,%v,%v,%v,%v,%v", dateStr, timeStr, figiToCompany[v.Figi].Ticker, quantity, v.Price, v.OperationType, v.Commision.Value*-1))
     }
   }
 
