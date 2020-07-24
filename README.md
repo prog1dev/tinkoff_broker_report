@@ -1,6 +1,6 @@
 ## tinkoff_broker_report
 
-Creates csv report of your trades via [Tinkoff Invest broker](www.tinkoff.ru/invest) within specified time frame. Can be uploaded to trades analyze serveces such as tradersync.com.
+Creates csv report of your trades via [Tinkoff Invest broker](www.tinkoff.ru/invest) within specified time frame. Can be uploaded to trades analyze services such as tradersync.com.
 
 ## Installation
 
